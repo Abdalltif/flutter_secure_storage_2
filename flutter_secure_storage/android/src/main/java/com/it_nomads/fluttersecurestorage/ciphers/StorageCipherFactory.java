@@ -13,8 +13,8 @@ public class StorageCipherFactory {
     private static final String ELEMENT_PREFERENCES_ALGORITHM_PREFIX = "FlutterSecureSAlgorithm";
     private static final String ELEMENT_PREFERENCES_ALGORITHM_KEY = ELEMENT_PREFERENCES_ALGORITHM_PREFIX + "Key";
     private static final String ELEMENT_PREFERENCES_ALGORITHM_STORAGE = ELEMENT_PREFERENCES_ALGORITHM_PREFIX + "Storage";
-    private static final KeyCipherAlgorithm DEFAULT_KEY_ALGORITHM = KeyCipherAlgorithm.RSA_ECB_PKCS1Padding;
-    private static final StorageCipherAlgorithm DEFAULT_STORAGE_ALGORITHM = StorageCipherAlgorithm.AES_CBC_PKCS7Padding;
+    private static final KeyCipherAlgorithm DEFAULT_KEY_ALGORITHM = KeyCipherAlgorithm.RSA_ECB_OAEPwithSHA_256andMGF1Padding;
+    private static final StorageCipherAlgorithm DEFAULT_STORAGE_ALGORITHM = StorageCipherAlgorithm.AES_GCM_NoPadding;
 
     private final KeyCipherAlgorithm savedKeyAlgorithm;
     private final StorageCipherAlgorithm savedStorageAlgorithm;
@@ -34,8 +34,8 @@ public class StorageCipherFactory {
             // data, even if the current config specifies different algorithms.
             // After successful decryption, the data will be re-encrypted with current algorithms
             // (if they differ) via the migration flow in handleKeyMismatch().
-            savedKeyAlgorithm = DEFAULT_KEY_ALGORITHM;        // RSA_ECB_PKCS1Padding
-            savedStorageAlgorithm = DEFAULT_STORAGE_ALGORITHM; // AES_CBC_PKCS7Padding
+            savedKeyAlgorithm = DEFAULT_KEY_ALGORITHM;        // RSA_ECB_OAEPwithSHA_256andMGF1Padding
+            savedStorageAlgorithm = DEFAULT_STORAGE_ALGORITHM; // AES_GCM_NoPadding
         } else {
             savedKeyAlgorithm = KeyCipherAlgorithm.fromString(savedKeyCipherAlgorithm);
             savedStorageAlgorithm = StorageCipherAlgorithm.fromString(savedStorageCipherAlgorithm);

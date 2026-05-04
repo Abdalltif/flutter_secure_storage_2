@@ -11,10 +11,7 @@ public class CipherAlgorithmTest {
     // KeyCipherAlgorithm.fromString
     // -------------------------------------------------------------------------
 
-    @Test
-    public void keyCipher_fromString_RSA_ECB_PKCS1Padding() {
-        assertEquals(KeyCipherAlgorithm.RSA_ECB_PKCS1Padding, KeyCipherAlgorithm.fromString("RSA_ECB_PKCS1Padding"));
-    }
+
 
     @Test
     public void keyCipher_fromString_RSA_ECB_OAEPwithSHA_256andMGF1Padding() {
@@ -52,10 +49,7 @@ public class CipherAlgorithmTest {
     // StorageCipherAlgorithm.fromString
     // -------------------------------------------------------------------------
 
-    @Test
-    public void storageCipher_fromString_AES_CBC_PKCS7Padding() {
-        assertEquals(StorageCipherAlgorithm.AES_CBC_PKCS7Padding, StorageCipherAlgorithm.fromString("AES_CBC_PKCS7Padding"));
-    }
+
 
     @Test
     public void storageCipher_fromString_AES_GCM_NoPadding() {
@@ -87,11 +81,11 @@ public class CipherAlgorithmTest {
 
     @Test
     public void keyCipher_hasExpectedNumberOfValues() {
-        assertEquals(3, KeyCipherAlgorithm.values().length);
+        assertEquals(2, KeyCipherAlgorithm.values().length);
     }
 
     @Test
     public void storageCipher_hasExpectedNumberOfValues() {
-        assertEquals(2, StorageCipherAlgorithm.values().length);
+        assertEquals(1, StorageCipherAlgorithm.values().length);
     }
 }

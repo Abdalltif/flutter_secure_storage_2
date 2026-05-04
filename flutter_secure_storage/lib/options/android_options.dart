@@ -5,8 +5,7 @@ part of '../flutter_secure_storage.dart';
 
 /// Algorithm used to encrypt/wrap the secret key in Android KeyStore.
 enum KeyCipherAlgorithm {
-  /// Legacy RSA/ECB/PKCS1Padding for backwards compatibility.
-  RSA_ECB_PKCS1Padding,
+
 
   /// RSA/ECB/OAEPWithSHA-256AndMGF1Padding (default, API 23+).
   RSA_ECB_OAEPwithSHA_256andMGF1Padding,
@@ -17,8 +16,7 @@ enum KeyCipherAlgorithm {
 
 /// Algorithm used to encrypt stored data.
 enum StorageCipherAlgorithm {
-  /// Legacy AES/CBC/PKCS7Padding for backwards compatibility.
-  AES_CBC_PKCS7Padding,
+
 
   /// AES/GCM/NoPadding (default, API 23+).
   AES_GCM_NoPadding,
@@ -38,7 +36,7 @@ class AndroidOptions extends Options {
   ///
   /// Advanced users can customize cipher algorithms for specific use cases.
   /// Valid combinations:
-  /// - AES_CBC_PKCS7Padding storage + any key cipher
+
   /// - AES_GCM_NoPadding storage + RSA key ciphers (standard RSA wrapping)
   /// - AES_GCM_NoPadding storage + AES_GCM_NoPadding key
   ///   (KeyStore-based, supports biometrics)
@@ -152,12 +150,12 @@ class AndroidOptions extends Options {
 
   /// Algorithm used to encrypt the secret key.
   /// By default RSA/ECB/OAEPWithSHA-256AndMGF1Padding is used (API 23+).
-  /// Legacy RSA/ECB/PKCS1Padding is available for backwards compatibility.
+
   final KeyCipherAlgorithm _keyCipherAlgorithm;
 
   /// Algorithm used to encrypt stored data.
   /// By default AES/GCM/NoPadding is used (API 23+).
-  /// Legacy AES/CBC/PKCS7Padding is available for backwards compatibility.
+
   final StorageCipherAlgorithm _storageCipherAlgorithm;
 
   /// The name of the sharedPreference database to use.

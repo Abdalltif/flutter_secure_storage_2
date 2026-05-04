@@ -134,11 +134,7 @@ public class FlutterSecureStorageConfigTest {
         assertEquals("Touch the sensor", config.getPrefOptionBiometricPromptSubtitle());
     }
 
-    @Test
-    public void custom_storageCipherAlgorithm() {
-        FlutterSecureStorageConfig config = configFrom(FlutterSecureStorageConfig.PREF_OPTION_STORAGE_CIPHER_ALGORITHM, "AES_CBC_PKCS7Padding");
-        assertEquals("AES_CBC_PKCS7Padding", config.getPrefOptionStorageCipherAlgorithm());
-    }
+
 
     @Test
     public void custom_keyCipherAlgorithm() {
